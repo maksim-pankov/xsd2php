@@ -71,6 +71,11 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->booleanNode('strict_types')
                 ->end()
+                ->arrayNode('xml_namespaces')
+                     ->cannotBeEmpty()
+                     ->requiresAtLeastOneElement()
+                    ->prototype('scalar')->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

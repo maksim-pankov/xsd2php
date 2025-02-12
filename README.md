@@ -1,20 +1,3 @@
-> # UKRAINE NEEDS YOUR HELP NOW!
->
-> On 24 February 2022, Russian [President Vladimir Putin ordered an invasion of Ukraine by Russian Armed Forces](https://www.bbc.com/news/world-europe-60504334).
->
-> Your support is urgently needed.
->
-> - Donate to the volunteers. Here is the volunteer fund helping the Ukrainian army to provide all the necessary equipment:
->  https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi or https://savelife.in.ua/en/donate/
-> - Triple-check social media sources. Russian disinformation is attempting to coverup and distort the reality in Ukraine.
-> - Help Ukrainian refugees who are fleeing Russian attacks and shellings: https://www.globalcitizen.org/en/content/ways-to-help-ukraine-conflict/
-> -  Put pressure on your political representatives to provide help to Ukraine.
-> -  Believe in the Ukrainian people, they will not surrender, they don't have another Ukraine.
->
-> THANK YOU!
-----
-
-
 xsd2php
 =======
 
@@ -87,6 +70,8 @@ xsd2php:
 #    "http://www.example.org/test/somefile.xsd": somefile.xsd
 #  known_namespace_locations: # optional
 #    "urn:veloconnect:catalog-1.1": xsd/catalog-1.1.xsd
+#  xml_namespaces:
+#    'my-prefix': 'https://example.com/my-namespace'
 # configs_jms:  #optional
 #   xml_cdata: false # Disables CDATA
 ```
@@ -122,6 +107,9 @@ Here is an explanation on the meaning of each parameter:
 
 * `xsd2php.known_namespace_locations` (optional) Specify schema location by namespace.
   This can be used to read schemas which import namespaces but do not specify schemaLocation attributes.
+
+* `xsd2php.xml_namespaces` (optional) Specify XML namespace prefixes. If a prefix is defined for at namespace, then the
+  prefix will *always* be used in the XML element name.
 
 * `xsd2php.configs_jms.xml_cdata` (optional) Specify if CDATA should be used or not in serialization.
 
