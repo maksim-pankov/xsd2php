@@ -188,7 +188,7 @@ class YamlConverter extends AbstractConverter
                  // Force XML namespace prefix if prefix is defined.
                  if (isset($this->xmlRootNamespaceAlias)) {
                     $data['xml_root_name'] = $this->xmlRootNamespaceAlias . ':' . $element->getName();
-                    $data['xml_namespaces'][$data['xml_root_namespace']] = $this->xmlRootNamespaceAlias;
+                    $data['xml_namespaces'][$this->xmlRootNamespaceAlias] = $data['xml_root_namespace'];
                  }
                  elseif (isset($this->xmlNamespaces[$data['xml_root_namespace']])) {
                     $data['xml_root_name'] = $this->xmlNamespaces[$data['xml_root_namespace']] . ':' . $element->getName();
