@@ -31,6 +31,8 @@ abstract class AbstractConverter
         // namespace => prefix
     ];
 
+    protected $xmlRootNamespaceAlias = null;
+
     private NamingStrategy $namingStrategy;
 
     protected array $typeAliases = [];
@@ -207,6 +209,14 @@ abstract class AbstractConverter
     {
         $this->logger->info("Added XML namespace $prefix:$namespace");
         $this->xmlNamespaces[$namespace] = $prefix;
+
+        return $this;
+    }
+
+    public function addXMLRootNamespaceAlias($namespaceAlias)
+    {
+        $this->logger->info("Added XML Root Namespace Alias $namespaceAlias");
+        $this->xmlRootNamespaceAlias = $namespaceAlias;
 
         return $this;
     }

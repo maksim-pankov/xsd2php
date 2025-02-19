@@ -111,6 +111,8 @@ Here is an explanation on the meaning of each parameter:
 * `xsd2php.xml_namespaces` (optional) Specify XML namespace prefixes. If a prefix is defined for at namespace, then the
   prefix will *always* be used in the XML element name.
 
+* `xsd2php.xml_root_namespace_alias` (optional) Specify XML root element namespace prefixes
+
 * `xsd2php.configs_jms.xml_cdata` (optional) Specify if CDATA should be used or not in serialization.
 
 ## Generate PHP classes and JMS metadata info

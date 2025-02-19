@@ -76,6 +76,8 @@ class Configuration implements ConfigurationInterface
                      ->requiresAtLeastOneElement()
                     ->prototype('scalar')->end()
                 ->end()
+                ->scalarNode('xml_root_namespace_alias')
+                ->end()
             ->end();
 
         return $treeBuilder;
