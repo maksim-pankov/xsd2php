@@ -171,7 +171,7 @@ class YamlConverter extends AbstractConverter
             $ns = $className;
             $class[$ns] = &$data;
 
-            if (!empty($this->)) {
+            if (!empty($this->xmlNamespaces)) {
                 $data['xml_namespaces'] = array_flip($this->xmlNamespaces);
             }
 
