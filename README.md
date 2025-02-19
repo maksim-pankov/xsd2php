@@ -71,7 +71,7 @@ xsd2php:
 #  known_namespace_locations: # optional
 #    "urn:veloconnect:catalog-1.1": xsd/catalog-1.1.xsd
 #  xml_namespaces:
-#    'my-prefix': 'https://example.com/my-namespace'
+#    'https://example.com/my-namespace': 'my-prefix'
 # configs_jms:  #optional
 #   xml_cdata: false # Disables CDATA
 ```

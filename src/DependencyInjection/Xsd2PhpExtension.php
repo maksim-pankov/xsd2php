@@ -44,7 +44,7 @@ class Xsd2PhpExtension extends Extension
             foreach ($config['namespaces'] as $xml => $php) {
                 $converter->addMethodCall('addNamespace', [$xml, self::sanitizePhp($php)]);
             }
-            foreach ($config['xml_namespaces'] as $prefix => $namespace) {
+            foreach ($config['xml_namespaces'] as $namespace => $prefix) {
                 $converter->addMethodCall('addXMLNamespace', [$prefix, $namespace]);
             }
             foreach ($config['aliases'] as $xml => $data) {
@@ -55,7 +55,7 @@ class Xsd2PhpExtension extends Extension
         }
 
         $converter = $container->getDefinition('goetas_webservices.xsd2php.converter.jms');
-        foreach ($config['xml_namespaces'] as $prefix => $namespace) {
+        foreach ($config['xml_namespaces'] as $namespace => $prefix) {
             $converter->addMethodCall('addXMLNamespace', [$prefix, $namespace]);
         }
 

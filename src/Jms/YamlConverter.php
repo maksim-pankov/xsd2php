@@ -172,7 +172,7 @@ class YamlConverter extends AbstractConverter
             $class[$ns] = &$data;
 
             if (!empty($this->xmlNamespaces)) {
-                $data['xml_namespaces'] = array_flip($this->xmlNamespaces);
+                $data['xml_namespaces'] = $this->xmlNamespaces;
             }
 
             $data['xml_root_name'] = $element->getName();
