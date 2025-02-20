@@ -5,6 +5,7 @@ namespace GoetasWebservices\Xsd\XsdToPhp\Naming;
 use Doctrine\Inflector\InflectorFactory;
 use GoetasWebservices\XML\XSDReader\Schema\Item;
 use GoetasWebservices\XML\XSDReader\Schema\Type\Type;
+use GoetasWebservices\Xsd\XsdToPhp\Php\Structure\PHPClass;
 
 abstract class AbstractNamingStrategy implements NamingStrategy
 {
@@ -110,5 +111,9 @@ abstract class AbstractNamingStrategy implements NamingStrategy
         $inflector = InflectorFactory::create()->build();
 
         return $inflector->classify(str_replace('.', ' ', $name));
+    }
+
+    public function getAnonymousTypeNamespace(PHPClass $class, PHPClass $parentClass): string {
+        return $parentClass->getNamespace() . '\\' . $parentClass->getName();
     }
 }

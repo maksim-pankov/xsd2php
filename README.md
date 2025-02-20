@@ -97,7 +97,7 @@ Here is an explanation on the meaning of each parameter:
  For that PHP class is necessary to create a custom JMS serialize/deserialize handler.
 
 
-* `xsd2php.naming_strategy` (optional) specifies the naming strategy to use when converting XML names PHP classes.
+* `xsd2php.naming_strategy` (optional) specifies the naming strategy to use when converting XML names PHP classes. Values: short, long, long_no_conflicts, short_flat
 
 * `xsd2php.path_generator` (optional) specifies the strategy to use for path generation and file saving
 

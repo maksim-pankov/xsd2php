@@ -5,12 +5,15 @@
     <services>
         <service id="goetas_webservices.xsd2php.naming_convention.short" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Naming\ShortNamingStrategy"/>
+
         <service id="goetas_webservices.xsd2php.naming_convention.long" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Naming\LongNamingStrategy"/>
 
         <service id="goetas_webservices.xsd2php.naming_convention.long_no_conflicts" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Naming\NoConflictLongNamingStrategy"/>
 
+        <service id="goetas_webservices.xsd2php.naming_convention.short_flat" public="false"
+                 class="GoetasWebservices\Xsd\XsdToPhp\Naming\ShortFlatNamingStrategy"/>
 
         <service id="goetas_webservices.xsd2php.schema_reader" public="true" class="GoetasWebservices\XML\XSDReader\SchemaReader" />
 

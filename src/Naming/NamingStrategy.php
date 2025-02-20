@@ -4,6 +4,7 @@ namespace GoetasWebservices\Xsd\XsdToPhp\Naming;
 
 use GoetasWebservices\XML\XSDReader\Schema\Item;
 use GoetasWebservices\XML\XSDReader\Schema\Type\Type;
+use GoetasWebservices\Xsd\XsdToPhp\Php\Structure\PHPClass;
 
 interface NamingStrategy
 {
@@ -15,4 +16,6 @@ interface NamingStrategy
 
     //@todo introduce common type for attributes and elements
     public function getPropertyName($item);
+
+    public function getAnonymousTypeNamespace(PHPClass $class, PHPClass $parentClass): string;
 }

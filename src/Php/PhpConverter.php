@@ -325,9 +325,11 @@ class PhpConverter extends AbstractConverter
     {
         if (!isset($this->classes[spl_object_hash($type)])) {
             $this->classes[spl_object_hash($type)]['class'] = $class = new PHPClass();
-            $class->setName($this->getNamingStrategy()->getAnonymousTypeName($type, $name));
+            $namingStrategy = $this->getNamingStrategy();
 
-            $class->setNamespace($parentClass->getNamespace() . '\\' . $parentClass->getName());
+            $class->setName($namingStrategy->getAnonymousTypeName($type, $name));
+
+            $class->setNamespace($namingStrategy->getAnonymousTypeNamespace($class, $parentClass));
             $class->setDoc($type->getDoc());
 
             $this->visitTypeBase($class, $type);
