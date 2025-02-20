@@ -18,4 +18,6 @@ interface NamingStrategy
     public function getPropertyName($item);
 
     public function getAnonymousTypeNamespace(PHPClass $class, PHPClass $parentClass): string;
+
+    public function getAnonymousTypeNameForYaml(Type $type, string $typeNamespace, $parentClass, $parentName): string;
 }

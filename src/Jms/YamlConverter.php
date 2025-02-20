@@ -301,9 +301,13 @@ class YamlConverter extends AbstractConverter
             $class = [];
             $data = [];
 
-            $name = $this->getNamingStrategy()->getAnonymousTypeName($type, $parentName);
-
-            $class[$parentClass . '\\' . $name] = &$data;
+            $typeName = $this->getNamingStrategy()->getAnonymousTypeNameForYaml(
+                $type,
+                $this->findPHPNamespace($type),
+                $parentClass,
+                $parentName);
+                
+            $class[$typeName] = &$data;
 
             $this->visitTypeBase($class, $data, $type, $parentName);
             $this->classes[spl_object_hash($type)]['class'] = &$class;

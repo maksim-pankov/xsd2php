@@ -116,4 +116,9 @@ abstract class AbstractNamingStrategy implements NamingStrategy
     public function getAnonymousTypeNamespace(PHPClass $class, PHPClass $parentClass): string {
         return $parentClass->getNamespace() . '\\' . $parentClass->getName();
     }
+
+    public function getAnonymousTypeNameForYaml(Type $type, string $typeNamespace, $parentClass, $parentName): string {
+        $name = $this->getAnonymousTypeName($type, $parentName);
+        return $parentClass . '\\' . $name;
+    }
 }
