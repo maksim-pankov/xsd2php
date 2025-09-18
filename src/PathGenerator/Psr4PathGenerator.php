@@ -25,7 +25,7 @@ abstract class Psr4PathGenerator
     protected function makeDirectory(string $dir) {
         if (!@mkdir($dir, 0777, true)) {
             $error = error_get_last();
-            if ($error['message'] != 'File exists') {
+            if ($error['message'] != 'mkdir(): File exists') {
                 return false;
             }
         }
