@@ -10,26 +10,25 @@ class ShortFlatNamingStrategy  extends ShortNamingStrategy
     private array $knownAnonymousTypeNames = [];
 
     public function getAnonymousTypeNamespace(PHPClass $class, PHPClass $parentClass): string {
-        return $parentClass->getNamespace();
+        return $parentClass->getNamespace() . '\\' . $parentClass->getName();
     }
 
     public function getAnonymousTypeNameForYaml(Type $type, string $typeNamespace, $parentClass, $parentName): string {
-        $name = $this->getAnonymousTypeName($type, $parentName);
-        return $typeNamespace . '\\' . $name;
-    }
+        $res = $typeNamespace . '\\' . $this->getAnonymousTypeName($type, $parentName);
 
-    public function getAnonymousTypeName(Type $type, $parentName)
-    {
-        $res = $this->classify($parentName) . 'AType';
         if (array_key_exists($res, $this->knownAnonymousTypeNames)) {
             $this->knownAnonymousTypeNames[$res] += 1;
-            $counter = $this->knownAnonymousTypeNames[$res];
-            $newName = $parentName . "_" . str($counter);
-            $res = $this->classify($newName) . 'AType';
+            $newName = $parentName . "_" . $this->knownAnonymousTypeNames[$res];
+            $res = $typeNamespace . '\\' . $this->getAnonymousTypeName($type, $newName);
             return $res;
         }
 
         $this->knownAnonymousTypeNames[$res] = 1;
         return $res;
+    }
+
+    public function getAnonymousTypeName(Type $type, $parentName)
+    {
+        return $this->classify($parentName) . 'AType';
     }
 }
