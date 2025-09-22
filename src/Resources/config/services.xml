@@ -15,6 +15,8 @@
         <service id="goetas_webservices.xsd2php.naming_convention.short_flat" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Naming\ShortFlatNamingStrategy"/>
 
+        
+
         <service id="goetas_webservices.xsd2php.schema_reader" public="true" class="GoetasWebservices\XML\XSDReader\SchemaReader" />
 
         <service synthetic="true" public="true" id="goetas_webservices.xsd2php.naming_convention"/>
@@ -47,10 +49,16 @@
 
         <service id="goetas_webservices.xsd2php.path_generator.php.psr4" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Php\PathGenerator\Psr4PathGenerator"></service>
+        <service id="goetas_webservices.xsd2php.path_generator.php.short_flat" public="false"
+                 class="GoetasWebservices\Xsd\XsdToPhp\Php\PathGenerator\Psr4PathGenerator"></service>                 
         <service id="goetas_webservices.xsd2php.path_generator.jms.psr4" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Jms\PathGenerator\Psr4PathGenerator"></service>
+        <service id="goetas_webservices.xsd2php.path_generator.jms.short_flat" public="false"
+                 class="GoetasWebservices\Xsd\XsdToPhp\Jms\PathGenerator\ShortFlatPathGenerator"></service>                 
         <service id="goetas_webservices.xsd2php.path_generator.validation.psr4" public="false"
                  class="GoetasWebservices\Xsd\XsdToPhp\Jms\PathGenerator\Psr4PathGenerator"></service>
+        <service id="goetas_webservices.xsd2php.path_generator.validation.short_flat" public="false"
+                 class="GoetasWebservices\Xsd\XsdToPhp\Jms\PathGenerator\ShortFlatPathGenerator"></service>
 
         <service id="goetas_webservices.xsd2php.writer.php" class="GoetasWebservices\Xsd\XsdToPhp\Writer\PHPWriter" public="true">
             <argument id="goetas_webservices.xsd2php.class_writer.php" type="service"/>
