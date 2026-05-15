@@ -14,7 +14,7 @@ class ShortFlatNamingStrategy  extends ShortNamingStrategy
     }
 
     public function getAnonymousTypeNameForYaml(Type $type, string $typeNamespace, $parentClass, $parentName): string {
-        $res = $parentClass . '\\' . $this->getAnonymousTypeName($type, $parentName);
+        $res = $parentClass . DIRECTORY_SEPARATOR . $this->getAnonymousTypeName($type, $parentName);
         return $res;
     }
 
