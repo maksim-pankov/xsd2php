@@ -21,7 +21,11 @@ class ShortFlatPathGenerator extends Psr4PathGeneratorBase implements PathGenera
                 }
 
                 $fileName = ltrim( substr($ns, strlen($namespace)), '\\');
-                $fielPath = $dir . '/' . $fileName . '.yml';
+                if ('\\' != DIRECTORY_SEPARATOR)
+                {
+                    $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $fileName);
+                }
+                $fielPath = $dir . DIRECTORY_SEPARATOR . $fileName . '.yml';
                 $pathInfo = pathinfo($fielPath);
                 $dir = $pathInfo['dirname'];
                 if (!is_dir($dir) && !$this->makeDirectory($dir)) {
